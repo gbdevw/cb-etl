@@ -1,0 +1,12 @@
+{
+    "type":"match",
+    "trade_id":14826601,
+    "maker_order_id":"890872bf-d582-4c96-9ffc-f3d15895c873",
+    "taker_order_id":"339196c4-79ef-4f75-8a89-121e5ba4e467",
+    "side":"sell",
+    "size":"1.09421995",
+    "price":"9209.9",
+    "product_id":"BTC-USD",
+    "sequence":184479385,
+    "time":"2020-07-12T17:49:47.169497Z"
+}

@@ -1,0 +1,115 @@
+# General quarkus configuration
+quarkus:
+  
+  application:
+    name: ${APPLICATION_NAME:coinbase-etl}
+
+  profile: ${APPLICATION_PROFILE:prod}
+
+  http:
+    host: ${APPLICATION_HOST:0.0.0.0}
+    port: ${APPLICATION_PORT:8080}
+
+  log:
+    level: INFO
+
+  thread-pool:
+    core-threads: 1
+    max-threads: 1
+    prefill: true
+
+  smallrye-metrics:
+    path: /metrics
+    micrometer:
+      compatibility: true
+
+  vertx:
+    worker-pool-size: 2
+    internal-blocking-pool-size: 2
+
+# Coinbase websocket feed configuration
+coinbase:
+  # URI to the Coinbase websocket feed
+  websocket: ${COINBASE_WSS_URI:wss://ws-feed.pro.coinbase.com}
+  # URI to the Coinbase Pro API
+  api: ${COINBASE_API_URI:https://api.pro.coinbase.com}
+  # Products to support
+  product: ${COINBASE_PRODUCT:BTC-USD}
+
+# Kafka configuration
+confluent:
+  enabled: ${KAFKA_ENABLED:false}
+  # Fetch Kafka config. from a property file using an absolute path (first)
+  file: ${KAFKA_CONFIG_PATH}
+  # Fetch Kafka config. from a property file located in resources (second)
+  resource: ${KAFKA_CONFIG_RESOURCE}
+  # The topic to use to publish match events
+  match: ${KAFKA_TOPICS_MATCHES}
+  # The topic to use to publish tick events
+  ticker: ${KAFKA_TOPICS_MATCHES}
+
+# DEV profile - Suitable to local run without external dependencies
+"%dev" :
+  quarkus:
+    log:
+      category:
+        "CoinbaseWSClientEndpoint":
+          level: TRACE
+        "MatchProducer":
+          level: TRACE
+        "TickerProducer":
+          level: TRACE
+        "MatchSyncer":
+          level: TRACE
+
+  coinbase:
+    api: https://api.pro.coinbase.com
+    uri: wss://ws-feed.pro.coinbase.com
+    product: BTC-USD
+
+  confluent:
+    enabled: false
+
+# Local run - with external dependencies
+"%local":
+  quarkus:
+    log:
+      category:
+        "CoinbaseWSClientEndpoint":
+          level: TRACE
+        "MatchProducer":
+          level: TRACE
+        "TickerProducer":
+          level: TRACE
+        "MatchSyncer":
+          level: TRACE
+  coinbase:
+    uri : wss://ws-feed.pro.coinbase.com
+    product: BTC-USD
+  confluent:
+    enabled: true
+    resource: /kafka/kafka.properties
+    match: coinbase-btc-usd-matches
+    ticker: coinbase-btc-usd-tickers
+
+# Test profile
+"%test" :
+  quarkus:
+    log:
+      category:
+        "CoinbaseWSClientEndpoint":
+          level: TRACE
+        "MatchProducer":
+          level: TRACE
+        "TickerProducer":
+          level: TRACE
+        "MatchSyncer":
+          level: TRACE
+
+  coinbase:
+    api: https://api.pro.coinbase.com
+    uri: wss://ws-feed.pro.coinbase.com
+    product: BTC-USD
+
+  confluent:
+    enabled: false
