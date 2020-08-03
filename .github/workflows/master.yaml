@@ -1,0 +1,33 @@
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build_test_package_container_native:
+    name: Build, Test & Container - Native
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: setup-graalvm-ce
+        uses: rinx/setup-graalvm-ce@v0.0.4
+        with:
+          graalvm-version: "20.1.0"
+          java-version: "java11"
+          native-image: "true"
+
+      - name: Build, Test with Maven - Native
+        run: ./mvnw package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
+
+      - name: Docker - Login
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        
+      - name: Docker - Build native container
+        run: docker build -f src/main/docker/Dockerfile.native -t guillaumebraibant/colibri:cbetl-1.0.0 .
+
+      - name: Docker - Push container
+        run: docker push guillaumebraibant/colibri:cbetl-1.0.0
