@@ -105,16 +105,6 @@
   </dependencies>
   <repositories>
     <repository>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <id>coinsight-domain-java</id>
-      <url>https://pkgs.dev.azure.com/guillaumebraibant0827/coinsight/_packaging/coinsight-domain-java/maven/v1</url>
-    </repository>
-    <repository>
       <id>confluent</id>
       <url>http://packages.confluent.io/maven/</url>
     </repository>
