@@ -1,0 +1,11 @@
+[
+    {
+      "name" : "io.confluent.kafka.serializers.protobuf.KafkaProtobufSerializer",
+      "allDeclaredConstructors" : true,
+      "allPublicConstructors" : true,
+      "allDeclaredMethods" : true,
+      "allPublicMethods" : true,
+      "allDeclaredFields" : true,
+      "allPublicFields" : true
+    }
+  ]
