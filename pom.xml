@@ -177,6 +177,7 @@
         <quarkus.native.enable-https-url-handler>true</quarkus.native.enable-https-url-handler>
         <quarkus.native.enable-all-security-services>true</quarkus.native.enable-all-security-services>
         <quarkus.native.additional-build-args>-H:ReflectionConfigurationFiles=reflection-config.json</quarkus.native.additional-build-args>
+        <quarkus.native.report-errors-at-runtime>true</quarkus.native.report-errors-at-runtime>
       </properties>
     </profile>
   </profiles>
