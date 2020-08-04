@@ -25,11 +25,13 @@ import gbdevw.colibri.coinbaseetl.configuration.ConfluentProperties;
 import gbdevw.colibri.domain.marketevent.MarketEvent.Ticker;
 import io.quarkus.arc.properties.IfBuildProperty;
 import io.quarkus.runtime.Startup;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import io.quarkus.vertx.ConsumeEvent;
 
 /**
  * Class which send ticker eventsto the undelrying messaging system
  */
+@RegisterForReflection
 @ApplicationScoped
 @IfBuildProperty(name = "confluent.enabled", stringValue = "true")
 @Startup

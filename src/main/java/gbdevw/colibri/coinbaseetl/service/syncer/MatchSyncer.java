@@ -17,6 +17,7 @@ import gbdevw.colibri.coinbaseetl.configuration.CoinbaseProperties;
 import gbdevw.colibri.domain.marketevent.MarketEvent.Match;
 import gbdevw.colibri.domain.utils.Utils.Currency;
 import gbdevw.colibri.domain.utils.Utils.Side;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import io.quarkus.vertx.ConsumeEvent;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.mutiny.core.Vertx;
@@ -28,6 +29,7 @@ import io.vertx.mutiny.ext.web.client.WebClient;
  * Class which fetch the latest trades at the application startup in order
  * to sync. the trade flow.
  */
+@RegisterForReflection
 @ApplicationScoped
 public class MatchSyncer {
 

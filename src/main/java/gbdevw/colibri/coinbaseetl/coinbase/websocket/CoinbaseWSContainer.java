@@ -22,8 +22,10 @@ import org.slf4j.LoggerFactory;
 
 import gbdevw.colibri.coinbaseetl.configuration.CoinbaseProperties;
 import io.quarkus.runtime.Startup;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import io.quarkus.vertx.ConsumeEvent;
 
+@RegisterForReflection
 @ApplicationScoped
 @Startup
 @Liveness

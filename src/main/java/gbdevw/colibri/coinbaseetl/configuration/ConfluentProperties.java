@@ -3,10 +3,12 @@ package gbdevw.colibri.coinbaseetl.configuration;
 import java.util.Optional;
 
 import io.quarkus.arc.config.ConfigProperties;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 
 /**
  * Class which defines properties to interact with the Kafka cluster
  */
+@RegisterForReflection
 @ConfigProperties(prefix="confluent")
 public class ConfluentProperties {
 

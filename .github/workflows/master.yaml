@@ -24,7 +24,7 @@ jobs:
           servers: '[{"id": "github", "username": "${{ secrets.GH_USERNAME }}", "password": "${{ secrets.GH_PASSWORD }}"}]'
           
       - name: Build, Test with Maven - Native
-        run: ./mvnw package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
+        run: ./mvnw package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker -Dquarkus.native.enable-https-url-handler=true -Dquarkus.native.enable-all-security-services=true
 
       - name: Docker - Login
         env:

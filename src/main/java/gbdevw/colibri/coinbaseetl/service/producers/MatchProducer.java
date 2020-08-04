@@ -25,11 +25,13 @@ import gbdevw.colibri.coinbaseetl.configuration.ConfluentProperties;
 import gbdevw.colibri.domain.marketevent.MarketEvent.Match;
 import io.quarkus.arc.properties.IfBuildProperty;
 import io.quarkus.runtime.Startup;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import io.quarkus.vertx.ConsumeEvent;
 
 /**
  * This class provides a service to handle match events and send them on a messaging system.
  */
+@RegisterForReflection
 @ApplicationScoped
 @IfBuildProperty(name = "confluent.enabled", stringValue = "true")
 @Startup

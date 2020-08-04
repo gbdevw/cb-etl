@@ -31,12 +31,14 @@ import gbdevw.colibri.coinbaseetl.coinbase.websocket.utils.CoinbaseWsEventAddres
 import gbdevw.colibri.coinbaseetl.coinbase.websocket.utils.CoinbaseWsLastMatchHelper;
 import gbdevw.colibri.coinbaseetl.coinbase.websocket.utils.CoinbaseWsMatchHelper;
 import gbdevw.colibri.coinbaseetl.configuration.CoinbaseProperties;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.core.eventbus.EventBus;
 
 /**
  * Client endpoint for coinbase websocket feed.
  */
+@RegisterForReflection
 @ClientEndpoint
 @ApplicationScoped
 public class CoinbaseWSClientEndpoint {
