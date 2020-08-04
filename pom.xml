@@ -145,13 +145,11 @@
   <profiles>
     <profile>
       <id>native</id>
-        <properties>
-          <quarkus.package.type>native</quarkus.package.type>
-          <quarkus.native.container-runtime>docker</quarkus.native.container-runtime>
-          <quarkus.native.enable-https-url-handler>true</quarkus.native.enable-https-url-handler>
-          <quarkus.native.enable-all-security-services>true</quarkus.native.enable-all-security-services>
-          <quarkus.native.additional-build-args>-H:ReflectionConfigurationFiles=reflection-config.json</quarkus.native.additional-build-args>
-        </properties>
+      <activation>
+        <property>
+          <name>native</name>
+        </property>
+      </activation>
       <build>
         <plugins>
           <plugin>
@@ -175,6 +173,10 @@
       </build>
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
+        <quarkus.native.container-runtime>docker</quarkus.native.container-runtime>
+        <quarkus.native.enable-https-url-handler>true</quarkus.native.enable-https-url-handler>
+        <quarkus.native.enable-all-security-services>true</quarkus.native.enable-all-security-services>
+        <quarkus.native.additional-build-args>-H:ReflectionConfigurationFiles=reflection-config.json</quarkus.native.additional-build-args>
       </properties>
     </profile>
   </profiles>
