@@ -51,7 +51,7 @@ confluent:
   # The topic to use to publish match events
   match: ${KAFKA_TOPICS_MATCHES}
   # The topic to use to publish tick events
-  ticker: ${KAFKA_TOPICS_MATCHES}
+  ticker: ${KAFKA_TOPICS_TICKERS}
 
 # DEV profile - Suitable to local run without external dependencies
 "%dev" :
