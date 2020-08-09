@@ -10,17 +10,16 @@
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <confluent-kafka-protobuf-serializer.version>5.5.1</confluent-kafka-protobuf-serializer.version>
     <gson.version>2.8.6</gson.version>
-    <kafka-clients.version>2.5.0</kafka-clients.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <protobuf-java.version>3.11.4</protobuf-java.version>
-    <quarkus-plugin.version>1.5.2.Final</quarkus-plugin.version>
+    <quarkus-plugin.version>1.6.1.Final</quarkus-plugin.version>
     <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-    <quarkus.platform.version>1.5.2.Final</quarkus.platform.version>
+    <quarkus.platform.version>1.6.1.Final</quarkus.platform.version>
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
   </properties>
   <dependencyManagement>
@@ -44,11 +43,6 @@
       <groupId>io.confluent</groupId>
       <artifactId>kafka-protobuf-serializer</artifactId>
       <version>${confluent-kafka-protobuf-serializer.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka-clients</artifactId>
-      <version>${kafka-clients.version}</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -85,10 +79,6 @@
       <artifactId>quarkus-vertx</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.smallrye.reactive</groupId>
-      <artifactId>smallrye-mutiny-vertx-web-client</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
       <version>${gson.version}</version>
@@ -104,7 +94,15 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+      <artifactId>quarkus-rest-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-kafka-client</artifactId>
     </dependency>
   </dependencies>
   <repositories>
@@ -172,11 +170,11 @@
         </plugins>
       </build>
       <properties>
-        <quarkus.package.type>native</quarkus.package.type>
+        <quarkus.native.additional-build-args>-H:ReflectionConfigurationFiles=reflection-config.json</quarkus.native.additional-build-args>
         <quarkus.native.container-runtime>docker</quarkus.native.container-runtime>
         <quarkus.native.enable-https-url-handler>true</quarkus.native.enable-https-url-handler>
         <quarkus.native.enable-all-security-services>true</quarkus.native.enable-all-security-services>
-        <quarkus.native.additional-build-args>-H:ReflectionConfigurationFiles=reflection-config.json</quarkus.native.additional-build-args>
+        <quarkus.package.type>native</quarkus.package.type>
         <quarkus.native.report-errors-at-runtime>true</quarkus.native.report-errors-at-runtime>
       </properties>
     </profile>

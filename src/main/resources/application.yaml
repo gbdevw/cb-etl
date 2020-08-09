@@ -27,7 +27,7 @@ quarkus:
     worker-pool-size: 2
     internal-blocking-pool-size: 2
 
-# Coinbase websocket feed configuration
+# Coinbase configuration
 coinbase:
   # URI to the Coinbase websocket feed
   websocket: ${COINBASE_WSS_URI:wss://ws-feed.pro.coinbase.com}
@@ -35,6 +35,10 @@ coinbase:
   api: ${COINBASE_API_URI:https://api.pro.coinbase.com}
   # Products to support
   product: ${COINBASE_PRODUCT:BTC-USD}
+  # REST Client config.
+
+# Coinbase REST client config.
+coinbase-rest-client/mp-rest/url: ${coinbase.api}
 
 # Kafka configuration
 confluent:
@@ -42,6 +46,7 @@ confluent:
   # Fetch Kafka config. from a property file using an absolute path (first)
   file: ${KAFKA_CONFIG_PATH}
   # Fetch Kafka config. from a property file located in resources (second)
+  # Not recommended when using native build (resource must be added during build)
   resource: ${KAFKA_CONFIG_RESOURCE}
   # The topic to use to publish match events
   match: ${KAFKA_TOPICS_MATCHES}
@@ -63,8 +68,8 @@ confluent:
           level: TRACE
 
   coinbase:
-    api: https://api.pro.coinbase.com
-    uri: wss://ws-feed.pro.coinbase.com
+    api: https://api-public.sandbox.pro.coinbase.com
+    uri: wss://ws-feed-public.sandbox.pro.coinbase.com
     product: BTC-USD
 
   confluent:
@@ -84,7 +89,8 @@ confluent:
         "MatchSyncer":
           level: TRACE
   coinbase:
-    uri : wss://ws-feed.pro.coinbase.com
+    api: https://api-public.sandbox.pro.coinbase.com
+    uri: wss://ws-feed-public.sandbox.pro.coinbase.com
     product: BTC-USD
   confluent:
     enabled: true
@@ -107,8 +113,8 @@ confluent:
           level: TRACE
 
   coinbase:
-    api: https://api.pro.coinbase.com
-    uri: wss://ws-feed.pro.coinbase.com
+    api: https://api-public.sandbox.pro.coinbase.com
+    uri: wss://ws-feed-public.sandbox.pro.coinbase.com
     product: BTC-USD
 
   confluent:
