@@ -2,7 +2,7 @@ package gbdevw.colibri.coinbaseetl.codecs;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 
-import gbdevw.colibri.domain.marketevent.MarketEvent.Ticker;
+import gbdevw.colibri.domain.Ticker;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.eventbus.MessageCodec;
 

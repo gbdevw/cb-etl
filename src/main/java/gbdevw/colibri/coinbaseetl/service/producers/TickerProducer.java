@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 import io.confluent.kafka.serializers.protobuf.KafkaProtobufSerializer;
 import gbdevw.colibri.coinbaseetl.coinbase.websocket.utils.CoinbaseWsEventAddresses;
 import gbdevw.colibri.coinbaseetl.configuration.ConfluentProperties;
-import gbdevw.colibri.domain.marketevent.MarketEvent.Ticker;
+import gbdevw.colibri.domain.Ticker;
 import io.quarkus.arc.properties.IfBuildProperty;
 import io.quarkus.runtime.Startup;
 import io.quarkus.runtime.annotations.RegisterForReflection;

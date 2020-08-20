@@ -6,9 +6,9 @@ import java.util.Optional;
 
 import com.google.gson.JsonObject;
 
-import gbdevw.colibri.domain.marketevent.MarketEvent.Match;
-import gbdevw.colibri.domain.utils.Utils.Currency;
-import gbdevw.colibri.domain.utils.Utils.Side;
+import gbdevw.colibri.domain.Match;
+import gbdevw.colibri.domain.Currency;
+import gbdevw.colibri.domain.Side;
 
 /**
  * Class which provides methods to extract data from a Mast Match message
