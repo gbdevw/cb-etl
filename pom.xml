@@ -170,7 +170,6 @@
         </plugins>
       </build>
       <properties>
-        <quarkus.native.additional-build-args>-H:ReflectionConfigurationFiles=reflection-config.json</quarkus.native.additional-build-args>
         <quarkus.native.container-runtime>docker</quarkus.native.container-runtime>
         <quarkus.native.enable-https-url-handler>true</quarkus.native.enable-https-url-handler>
         <quarkus.native.enable-all-security-services>true</quarkus.native.enable-all-security-services>
