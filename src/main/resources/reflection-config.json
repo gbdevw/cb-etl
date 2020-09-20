@@ -9,7 +9,7 @@
     "allPublicFields" : true
   },
   {
-    "name" : "gbdevw.colibri.domain.Match",
+    "name" : "tech.gbdevw.colibri.domain.Match",
     "allDeclaredConstructors" : true,
     "allPublicConstructors" : true,
     "allDeclaredMethods" : true,
@@ -18,7 +18,7 @@
     "allPublicFields" : true
   },
   {
-    "name" : "gbdevw.colibri.domain.Ticker",
+    "name" : "tech.gbdevw.colibri.domain.Ticker",
     "allDeclaredConstructors" : true,
     "allPublicConstructors" : true,
     "allDeclaredMethods" : true,
@@ -27,7 +27,7 @@
     "allPublicFields" : true
   },
   {
-    "name" : "gbdevw.colibri.domain.Side",
+    "name" : "tech.gbdevw.colibri.domain.Side",
     "allDeclaredConstructors" : true,
     "allPublicConstructors" : true,
     "allDeclaredMethods" : true,
@@ -36,7 +36,7 @@
     "allPublicFields" : true
   },
   {
-    "name" : "gbdevw.colibri.domain.Currency",
+    "name" : "tech.gbdevw.colibri.domain.Currency",
     "allDeclaredConstructors" : true,
     "allPublicConstructors" : true,
     "allDeclaredMethods" : true,
