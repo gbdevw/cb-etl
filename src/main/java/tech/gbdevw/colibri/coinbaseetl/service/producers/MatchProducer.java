@@ -19,10 +19,10 @@ import org.eclipse.microprofile.health.Liveness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.confluent.kafka.serializers.protobuf.KafkaProtobufSerializer;
 import tech.gbdevw.colibri.coinbaseetl.coinbase.websocket.utils.CoinbaseWsEventAddresses;
 import tech.gbdevw.colibri.coinbaseetl.configuration.ConfluentProperties;
 import tech.gbdevw.colibri.domain.Match;
+import tech.gbdevw.colibri.domain.serde.MatchSerializer;
 import io.quarkus.arc.properties.IfBuildProperty;
 import io.quarkus.runtime.Startup;
 import io.quarkus.runtime.annotations.RegisterForReflection;
@@ -99,7 +99,7 @@ public class MatchProducer implements AutoCloseable, HealthCheck {
         Properties props = new Properties ();
         props.load(is);
         props.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, LongSerializer.class.getName());
-        props.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaProtobufSerializer.class.getName());
+        props.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, MatchSerializer.class.getName());
 
         // Create the producer
         this.matchProducer = new KafkaProducer<Long, Match>(props);
