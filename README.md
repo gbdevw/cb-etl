@@ -30,7 +30,7 @@ If you want to learn more about building native executables, please consult http
 ### Configuration
 
 | ENV. VARIABLES | DEFAULT/EXAMPLE | DESCRIPTION | COMMENT |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | APPLICATION_NAME | coinbase-etl | Defines the application name | /
 | APPLICATION_PROFILE | prod | Override application profile | /
 | APPLICATION_HOST | 0.0.0.0 | Interfaces to listen on | /
