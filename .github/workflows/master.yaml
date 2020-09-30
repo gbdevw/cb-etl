@@ -16,12 +16,6 @@ jobs:
           graalvm-version: "20.1.0"
           java-version: "java11"
           native-image: "true"
-
-      - name: maven-settings-xml-action
-        uses: whelk-io/maven-settings-xml-action@v10
-        with:
-          repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/gbdevw/colibri" }]'
-          servers: '[{"id": "github", "username": "${{ secrets.GH_USERNAME }}", "password": "${{ secrets.GH_PASSWORD }}"}]'
           
       - name: Build, Test with Maven - Native
         run: ./mvnw package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
