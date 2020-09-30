@@ -37,3 +37,9 @@ jobs:
 
       - name: Docker - Push container
         run: docker push guillaumebraibant/colibri:cbetl-1.0.0
+
+      - name: Docker - Build JVM container
+        run: docker build -f src/main/docker/Dockerfile.jvm -t guillaumebraibant/colibri:cbetl-jvm-1.0.0 .
+
+      - name: Docker - Push container
+        run: docker push guillaumebraibant/colibri:cbetl-jvm-1.0.0
