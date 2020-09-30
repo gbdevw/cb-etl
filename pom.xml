@@ -110,6 +110,10 @@
       <id>confluent</id>
       <url>http://packages.confluent.io/maven/</url>
     </repository>
+    <repository>
+      <id>colibri</id>
+      <url>https://maven.pkg.github.com/gbdevw/colibri</url>
+    </repository>
   </repositories>
   <build>
     <plugins>
