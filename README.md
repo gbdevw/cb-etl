@@ -2,6 +2,14 @@
 
 This application fetches trades and ticker events from the Coinbase websocket feed and pushes those events to a Kafka messaging system.
 
+### Authenticate to Github packages
+
+This project uses a public github package from the colibri-domain repository.
+
+See the link below to know how to authenticate to be able to use the package and build the project :
+
+https://docs.github.com/en/free-pro-team@latest/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages#authenticating-to-github-packages
+
 ### Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
