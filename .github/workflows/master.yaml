@@ -36,13 +36,13 @@ jobs:
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         
       - name: Docker - Build native container
-        run: docker build -f src/main/docker/Dockerfile.native -t guillaumebraibant/colibri:cbetl-1.0.0 .
+        run: docker build -f src/main/docker/Dockerfile.native -t guillaumebraibant/colibri:cbetl-1.0.1 .
 
       - name: Docker - Push container
-        run: docker push guillaumebraibant/colibri:cbetl-1.0.0
+        run: docker push guillaumebraibant/colibri:cbetl-1.0.1
 
       - name: Docker - Build JVM container
-        run: docker build -f src/main/docker/Dockerfile.jvm -t guillaumebraibant/colibri:cbetl-jvm-1.0.0 .
+        run: docker build -f src/main/docker/Dockerfile.jvm -t guillaumebraibant/colibri:cbetl-jvm-1.0.1 .
 
       - name: Docker - Push container
-        run: docker push guillaumebraibant/colibri:cbetl-jvm-1.0.0
+        run: docker push guillaumebraibant/colibri:cbetl-jvm-1.0.1
