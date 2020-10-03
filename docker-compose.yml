@@ -1,0 +1,36 @@
+version: "3.3"
+
+networks:
+  cbetl:
+
+volumes:
+  prometheus-data:
+
+services:
+      
+  cbetl:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.jvm
+    container_name: cbetl
+    ports:
+      - "8080:8080"
+    networks:
+      - cbetl
+
+  prometheus:
+    build: ./monitoring/prometheus/compose
+    ports:
+      - "9090:9090"
+    volumes:
+      - prometheus-data:/prometheus
+    networks:
+      - cbetl
+
+  grafana:
+    build: ./monitoring/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - cbetl
